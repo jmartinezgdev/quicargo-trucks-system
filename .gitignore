@@ -2,3 +2,4 @@ server/node_modules/
 server/typings/
 server/bin/
 server/package-lock.json
+server/logs

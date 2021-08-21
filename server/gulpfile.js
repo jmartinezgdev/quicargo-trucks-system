@@ -20,7 +20,7 @@ const startApp = (done) => {
     return gulpNodemon({
         exec: 'node --inspect=5858',
         ignore: '*',
-        script: `${DIST_FOLDER}/index.js`,
+        script: `${DIST_FOLDER}/server.js`,
         env: { 'NODE_ENV': 'development' },
         done: done
     });

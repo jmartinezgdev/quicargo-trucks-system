@@ -1,11 +1,7 @@
-import * as compression from 'compression';
-import * as express from 'express';
-import * as methodOverride from 'method-override';
 import * as winston from 'winston';
-import * as controller from './controller';
+import app from "./app";
 import { SERVER_PORT, SERVER_HOST } from './env';
 
-const app = express();
 const logger = winston.createLogger({
     level: 'info',
     format: winston.format.combine(
@@ -21,15 +17,6 @@ const logger = winston.createLogger({
         new winston.transports.File({ filename: 'logs/logfile.log' })
     ]
 });
-
-app.use(compression());
-app.use(express.urlencoded({
-    extended: true
-}));
-app.use(express.json());
-app.use(methodOverride());
-
-app.use('/api', controller.default);
 
 app.listen(SERVER_PORT, () => {
     logger.log('info', `Server Port: ${SERVER_PORT}`);
