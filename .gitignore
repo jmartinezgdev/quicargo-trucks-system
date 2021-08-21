@@ -1,4 +1,4 @@
-node_modules/
-typings/
-bin/
-package-lock.json
+server/node_modules/
+server/typings/
+server/bin/
+server/package-lock.json
