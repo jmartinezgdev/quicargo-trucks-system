@@ -1,17 +1,22 @@
 import * as express from 'express';
 import * as compression from 'compression';
 import * as methodOverride from 'method-override';
-import Routes from "./routes"
-
+import Route from "./routes"
+/**
+ * Class representing the App
+ * @class
+ */
 class App {
     public app: express.Application;
-    public appRoutes: Routes = new Routes();
+    private appRoutes: Route;
+
     constructor() {
         this.app = express();
         this.initSettings();
+        this.appRoutes = new Route();
         this.appRoutes.initRoutes(this.app);
     }
-
+    
     private initSettings(): void {
         this.app.use(compression());
         this.app.use(express.urlencoded({

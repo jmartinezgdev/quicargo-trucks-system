@@ -1,15 +1,24 @@
 import { Request, Response } from "express";
 import { Location } from "../db/models/location.model";
-import { LocationService } from "../services/locations.service";
+import { LocationService } from "../services/location.service";
 
-export class LocationsController {
+/**
+ *  Class representing Location Controller
+ * @class
+ */
+export class LocationController {
     private locationService: LocationService;
 
     constructor() {
         this.locationService = new LocationService();
     }
 
-    public get = async (_req: Request, res: Response) => {
+    /**
+     * Get all locations
+     * @param {Request} req 
+     * @param {Response} res
+     */
+    public get = async (_req: Request, res: Response): Promise<void> => {
         try {
             const locations: Location[] = await this.locationService.get();
             res.json(locations);
@@ -18,7 +27,12 @@ export class LocationsController {
         }
     }
 
-    public getById = async (req: Request, res: Response) => {
+    /**
+     * Get a location by Id
+     * @param {Request} req 
+     * @param {Response} res
+     */
+    public getById = async (req: Request, res: Response): Promise<void> => {
         try {
             const id: number = Number(req.params.id);
             const location: Location = await this.locationService.getById(id);
@@ -28,7 +42,12 @@ export class LocationsController {
         }
     }
 
-    public getByTruckId = async (req: Request, res: Response) => {
+    /**
+     * Get limit of locations by truck Id
+     * @param {Request} req 
+     * @param {Response} res
+     */
+    public getByTruckId = async (req: Request, res: Response): Promise<void> => {
         try {
             const truckId: number = Number(req.params.truckId);
             const limit: number = Number(req.query.limit);
@@ -39,7 +58,12 @@ export class LocationsController {
         }
     }
 
-    public create = async (req: Request, res: Response) => {
+    /**
+     * Create a location
+     * @param {Request} req 
+     * @param {Response} res
+     */
+    public create = async (req: Request, res: Response): Promise<void> => {
         try {
             const newLocation: Location = req.body;
             const createdLocation = await this.locationService.create(newLocation);
@@ -49,7 +73,12 @@ export class LocationsController {
         }
     }
 
-    public delete = async (req: Request, res: Response) => {
+    /**
+     * Delete a location
+     * @param {Request} req 
+     * @param {Response} res
+     */
+    public delete = async (req: Request, res: Response): Promise<void> => {
         try {
             const id: number = Number(req.params.id);
             await this.locationService.delete(id);
@@ -73,7 +102,5 @@ export class LocationsController {
        } catch (err) {
            res.status(500).json(err.message)
        }
-
    }*/
-
 }

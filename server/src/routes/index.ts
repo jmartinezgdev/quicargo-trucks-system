@@ -1,14 +1,26 @@
 import { Application } from "express";
 import { API_PATH } from "../env";
-import LocationsRoutes from "./locations.routes";
-import TrucksRoutes from "./trucks.routes";
+import LocationRoutes from "./location.routes";
+import TruckRoutes from "./truck.routes";
 
-export default class Routes {
-    private trucksRoutes = new TrucksRoutes();
-    private locationsRoutes = new LocationsRoutes()
+/**
+ * Class representing Route
+ */
+export default class Route {
+    private truckRoutes: TruckRoutes;
+    private locationRoutes: LocationRoutes;
 
+    constructor() {
+        this.truckRoutes = new TruckRoutes();
+        this.locationRoutes = new LocationRoutes()
+    }
+
+    /**
+     * Init System Routes
+     * @param {Application} app 
+     */
     public initRoutes(app: Application): void {
-        this.trucksRoutes.router(app, API_PATH);
-        this.locationsRoutes.router(app, API_PATH);
+        this.truckRoutes.router(app, API_PATH);
+        this.locationRoutes.router(app, API_PATH);
     }
 }

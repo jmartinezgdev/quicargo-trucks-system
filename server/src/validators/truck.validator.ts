@@ -1,7 +1,7 @@
 import { ValidationChain, param, body } from 'express-validator';
 import { AppValidator } from './app.validator';
 
-export class TrucksValidator extends AppValidator {
+export class TruckValidator extends AppValidator {
     private IdValidator: ValidationChain[] = [param('id', 'Invalid Truck Id').isInt()];
     
     public getByIdValidator: ValidationChain[] = [...this.IdValidator];

@@ -1,7 +1,7 @@
 import { ValidationChain, param, body, query } from 'express-validator';
 import { AppValidator } from './app.validator';
 
-export class LocationsValidator extends AppValidator {
+export class LocationValidator extends AppValidator {
     private IdValidator: ValidationChain[] = [param('id', 'Invalid Location Id').isInt()];
 
     public getByIdValidator: ValidationChain[] = [...this.IdValidator];
