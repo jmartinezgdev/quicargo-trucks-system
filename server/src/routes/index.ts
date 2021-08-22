@@ -1,15 +1,14 @@
 import { Application } from "express";
-import { TrucksController } from "../controllers/trucks.controller";
-import { LocationsController } from "../controllers/locations.controller";
+import { API_PATH } from "../env";
+import LocationsRoutes from "./locations.routes";
+import TrucksRoutes from "./trucks.routes";
 
 export default class Routes {
-    private trucksController: TrucksController = new TrucksController();
-    private locationsController: LocationsController = new LocationsController();
-    public routes(app: Application): void {
-        app.route("/api/v1/trucks")
-            .get(this.trucksController.index);
+    private trucksRoutes = new TrucksRoutes();
+    private locationsRoutes = new LocationsRoutes()
 
-        app.route("/api/v1/locations")
-            .get(this.locationsController.index);
+    public initRoutes(app: Application): void {
+        this.trucksRoutes.router(app, API_PATH);
+        this.locationsRoutes.router(app, API_PATH);
     }
 }

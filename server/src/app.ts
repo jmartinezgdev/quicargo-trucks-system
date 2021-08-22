@@ -9,7 +9,7 @@ class App {
     constructor() {
         this.app = express();
         this.initSettings();
-        this.appRoutes.routes(this.app);
+        this.appRoutes.initRoutes(this.app);
     }
 
     private initSettings(): void {
