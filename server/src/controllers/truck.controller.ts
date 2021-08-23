@@ -23,7 +23,7 @@ export class TruckController {
             const trucks: Truck[] = await this.truckService.get();
             res.json(trucks);
         } catch (err) {
-            res.status(500).json(err.message);
+            res.status(500).json({ error: err.message });
         }
     }
 
@@ -36,9 +36,9 @@ export class TruckController {
         try {
             const id: number = Number(req.params.id);
             const truck: Truck = await this.truckService.getById(id);
-            truck ? res.json(truck) : res.status(404).json(errorMessages.truck.TRUCK_NOT_FOUND);
+            truck ? res.json(truck) : res.status(404).json({ error: errorMessages.truck.TRUCK_NOT_FOUND });
         } catch (err) {
-            res.status(500).json(err.message)
+            res.status(500).json({ error: err.message });
         }
     }
 
@@ -53,7 +53,7 @@ export class TruckController {
             const createdTruck = await this.truckService.create(newTruck);
             res.status(201).json(createdTruck);
         } catch (err) {
-            res.status(500).json(err.message)
+            res.status(500).json({ error: err.message });
         }
     }
 
@@ -69,10 +69,10 @@ export class TruckController {
             const [, [updatedTruck]] = await this.truckService.update(id, truck);
             updatedTruck ?
                 res.status(200).json(updatedTruck) :
-                res.status(404).json(errorMessages.truck.TRUCK_NOT_FOUND)
+                res.status(404).json({ error: errorMessages.truck.TRUCK_NOT_FOUND });
 
         } catch (err) {
-            res.status(500).json(err.message)
+            res.status(500).json({ error: err.message });
         }
     }
 
@@ -87,7 +87,7 @@ export class TruckController {
             await this.truckService.delete(id);
             res.sendStatus(204);
         } catch (err) {
-            res.status(500).json(err.message);
+            res.status(500).json({ error: err.message });
         }
     }
 }

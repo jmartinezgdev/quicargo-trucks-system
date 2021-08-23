@@ -1,6 +1,7 @@
 
 import { Application } from "express";
 import { LocationController } from "../controllers/location.controller";
+import { LOCATIONS_PATH } from "../env";
 import { IRoutes } from "../interfaces/routes.interface";
 import { LocationValidator } from "../validators/location.validator";
 
@@ -22,14 +23,14 @@ export default class LocationRoutes implements IRoutes {
    * @param {string} apiPath 
    */
     public router(app: Application, apiPath: string): void {
-        app.route(`${apiPath}/location`)
+        app.route(LOCATIONS_PATH)
             .get(this.locationController.get)
             .post(
                 this.locationValidator.createValidator,
                 this.locationValidator.processErrors,
                 this.locationController.create);
 
-        app.route(`${apiPath}/location/:id`)
+        app.route(`${LOCATIONS_PATH}/:id`)
             .get(
                 this.locationValidator.getByIdValidator,
                 this.locationValidator.processErrors,
@@ -39,7 +40,7 @@ export default class LocationRoutes implements IRoutes {
                 this.locationValidator.processErrors,
                 this.locationController.delete);
 
-        app.route(`${apiPath}/location/truck/:truckId`)
+        app.route(`${LOCATIONS_PATH}/truck/:truckId`)
             .get(
                 this.locationValidator.getByTruckIdValidator,
                 this.locationValidator.processErrors,

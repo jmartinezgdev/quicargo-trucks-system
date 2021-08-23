@@ -1,5 +1,6 @@
 import { Application } from "express";
 import { TruckController } from "../controllers/truck.controller";
+import { TRUCKS_PATH } from "../env";
 import { IRoutes } from "../interfaces/routes.interface";
 import { TruckValidator } from "../validators/truck.validator";
 
@@ -22,14 +23,14 @@ export default class TruckRoutes implements IRoutes {
      * @param {string} apiPath 
      */
     public router(app: Application, apiPath: string): void {
-        app.route(`${apiPath}/truck`)
+        app.route(TRUCKS_PATH)
             .get(this.truckController.get)
             .post(
                 this.truckValidator.createValidator,
                 this.truckValidator.processErrors,
                 this.truckController.create);
 
-        app.route(`${apiPath}/truck/:id`)
+        app.route(`${TRUCKS_PATH}/:id`)
             .get(
                 this.truckValidator.getByIdValidator,
                 this.truckValidator.processErrors,

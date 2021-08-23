@@ -25,7 +25,7 @@ export class LocationController {
             const locations: Location[] = await this.locationService.get();
             res.json(locations);
         } catch (err) {
-            res.status(500).json(err.message)
+            res.status(500).json({ error: err.message });
         }
     }
 
@@ -38,9 +38,9 @@ export class LocationController {
         try {
             const id: number = Number(req.params.id);
             const location: Location = await this.locationService.getById(id);
-            location ? res.json(location) : res.status(404).json(errorMessages.location.LOCATION_NOT_FOUND);
+            location ? res.json(location) : res.status(404).json({ error: errorMessages.location.LOCATION_NOT_FOUND });
         } catch (err) {
-            res.status(500).json(err.message)
+            res.status(500).json({ error: err.message });
         }
     }
 
@@ -56,7 +56,7 @@ export class LocationController {
             const locations: Location[] = await this.locationService.getByTruckId(truckId, limit);
             res.json(locations);
         } catch (err) {
-            res.status(500).json(err.message)
+            res.status(500).json({ error: err.message });
         }
     }
 
@@ -78,7 +78,7 @@ export class LocationController {
             } else if (err instanceof UniqueConstraintError) {
                 message = errorMessages.location.LOCATION_EXIST;
             }
-            res.status(500).json(message)
+            res.status(500).json({ error: message });
         }
     }
 
@@ -93,7 +93,7 @@ export class LocationController {
             await this.locationService.delete(id);
             res.sendStatus(204);
         } catch (err) {
-            res.status(500).json(err.message)
+            res.status(500).json({ error: err.message });
         }
     }
 }

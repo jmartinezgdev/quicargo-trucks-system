@@ -32,8 +32,8 @@ export class AppValidator {
      */
     public processErrors(req: Request, res: Response, next: Function): Response<string> | void {
         const errors: ValidationError[] = AppValidator.getErrors(req);
-        if (errors.length > 0) {
-            return res.status(400).json(errors[0].msg);
+        if (errors.length) {
+            return res.status(400).json({ error: errors[0].msg });
         }
         next();
     }

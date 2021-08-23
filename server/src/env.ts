@@ -14,3 +14,5 @@ export const NODE_ENV: string = process.env.NODE_ENV || 'development'
 // API
 export const API_VERSION: string = process.env.API_VERSION || 'v1';
 export const API_PATH: string = process.env.API_PATH || `/api/${API_VERSION}`;
+export const LOCATIONS_PATH: string = process.env.API_PATH || `${API_PATH}/locations`;
+export const TRUCKS_PATH: string = process.env.API_PATH || `${API_PATH}/trucks`;
