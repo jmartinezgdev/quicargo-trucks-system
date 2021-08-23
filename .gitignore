@@ -1,5 +1,16 @@
+# Server
 server/node_modules/
 server/typings/
 server/bin/
 server/package-lock.json
 server/logs/
+
+# Client
+client/node_modules/
+client/package-lock.json
+
+# testing
+client/coverage
+
+# production
+client/build
