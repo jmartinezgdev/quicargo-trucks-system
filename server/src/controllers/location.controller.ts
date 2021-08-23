@@ -74,7 +74,7 @@ export class LocationController {
             let message = err.message;
 
             if (err instanceof ForeignKeyConstraintError) {
-                message = errorMessages.location.LOCATION_NOT_FOUND;
+                message = errorMessages.location.TRUCK_NOT_FOUND;
             } else if (err instanceof UniqueConstraintError) {
                 message = errorMessages.location.LOCATION_EXIST;
             }

@@ -28,16 +28,12 @@ export class AppValidator {
      * @param {Request} req 
      * @param {Response} res 
      * @param {Function} next 
-     * @returns {Response<unknown> | void} 
+     * @returns {Response<string> | void} 
      */
-    public processErrors(req: Request, res: Response, next: Function): Response<unknown> | void {
+    public processErrors(req: Request, res: Response, next: Function): Response<string> | void {
         const errors: ValidationError[] = AppValidator.getErrors(req);
         if (errors.length > 0) {
-            return res.status(400).json({
-                method: req.method,
-                status: res.statusCode,
-                error: errors
-            });
+            return res.status(400).json(errors[0].msg);
         }
         next();
     }

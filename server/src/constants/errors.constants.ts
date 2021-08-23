@@ -12,6 +12,7 @@ export const errorMessages = Object.freeze({
     },
     location: {
         LOCATION_NOT_FOUND: "Location not found",
+        TRUCK_NOT_FOUND: "Truck not found",
         LOCATION_EXIST: "Location for the required truck already exist",
         INVALID_TRUCK_ID: "Invalid truckId - must be an integer number",
         INVALID_LATITUDE: "Invalid latitude - must be numeric",
