@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { errorMessages } from "../constants/errors.constants";
 import { Truck } from "../db/models/truck.model";
 import { TruckService } from "../services/truck.service";
 /**
@@ -13,7 +14,7 @@ export class TruckController {
     }
 
     /**
-     * Get all trucks.
+     * Get trucks.
      * @param {Request} req 
      * @param {Response} res
      */
@@ -35,14 +36,14 @@ export class TruckController {
         try {
             const id: number = Number(req.params.id);
             const truck: Truck = await this.truckService.getById(id);
-            truck ? res.json(truck) : res.status(404).json({ message: "Truck not found" });
+            truck ? res.json(truck) : res.status(404).json(errorMessages.truck.TRUCK_NOT_FOUND);
         } catch (err) {
             res.status(500).json(err.message)
         }
     }
 
     /**
-     * Create a truck
+     * Create truck
      * @param {Request} req 
      * @param {Response} res
      */
@@ -57,7 +58,7 @@ export class TruckController {
     }
 
     /**
-     * Update a truck
+     * Update truck
      * @param {Request} req 
      * @param {Response} res
      */
@@ -65,18 +66,18 @@ export class TruckController {
         try {
             const id: number = Number(req.params.id);
             const truck: Truck = req.body;
-            const updatedTruck = await this.truckService.update(id, truck);
+            const [, [updatedTruck]] = await this.truckService.update(id, truck);
+            updatedTruck ?
+                res.status(200).json(updatedTruck) :
+                res.status(404).json(errorMessages.truck.TRUCK_NOT_FOUND)
 
-            !updatedTruck[1].length ?
-                res.status(404).json({ message: "Truck not found" }) :
-                res.status(200).json(updatedTruck[1])
         } catch (err) {
             res.status(500).json(err.message)
         }
     }
 
     /**
-     * Delete a truck
+     * Delete truck
      * @param {Request} req 
      * @param {Response} res
      */

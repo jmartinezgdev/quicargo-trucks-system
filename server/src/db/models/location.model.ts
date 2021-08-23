@@ -52,7 +52,7 @@ Location.init(
     indexes: [
       {
         unique: true,
-        fields: ['truckId', 'latitude', 'longitude']
+        fields: ['truckId', 'latitude', 'longitude', 'dateAndTime']
       }
     ]
   }

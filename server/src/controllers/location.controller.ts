@@ -1,4 +1,6 @@
 import { Request, Response } from "express";
+import { ForeignKeyConstraintError, UniqueConstraintError } from "sequelize";
+import { errorMessages } from "../constants/errors.constants";
 import { Location } from "../db/models/location.model";
 import { LocationService } from "../services/location.service";
 
@@ -14,7 +16,7 @@ export class LocationController {
     }
 
     /**
-     * Get all locations
+     * Get locations
      * @param {Request} req 
      * @param {Response} res
      */
@@ -28,7 +30,7 @@ export class LocationController {
     }
 
     /**
-     * Get a location by Id
+     * Get location by Id
      * @param {Request} req 
      * @param {Response} res
      */
@@ -36,7 +38,7 @@ export class LocationController {
         try {
             const id: number = Number(req.params.id);
             const location: Location = await this.locationService.getById(id);
-            location ? res.json(location) : res.status(404).json({ message: "Location not found" });
+            location ? res.json(location) : res.status(404).json(errorMessages.location.LOCATION_NOT_FOUND);
         } catch (err) {
             res.status(500).json(err.message)
         }
@@ -59,7 +61,7 @@ export class LocationController {
     }
 
     /**
-     * Create a location
+     * Create location
      * @param {Request} req 
      * @param {Response} res
      */
@@ -69,12 +71,19 @@ export class LocationController {
             const createdLocation = await this.locationService.create(newLocation);
             res.status(201).json(createdLocation);
         } catch (err) {
-            res.status(500).json(err.message)
+            let message = err.message;
+
+            if (err instanceof ForeignKeyConstraintError) {
+                message = errorMessages.location.LOCATION_NOT_FOUND;
+            } else if (err instanceof UniqueConstraintError) {
+                message = errorMessages.location.LOCATION_EXIST;
+            }
+            res.status(500).json(message)
         }
     }
 
     /**
-     * Delete a location
+     * Delete location
      * @param {Request} req 
      * @param {Response} res
      */
@@ -87,20 +96,4 @@ export class LocationController {
             res.status(500).json(err.message)
         }
     }
-
-    /*public async update(req: Request, res: Response) {
-       try {
-           const id: number = Number(req.params.id);
-           const params: Location = req.body;
-
-           const updateOptions: UpdateOptions = {
-               where: { id },
-               limit: 1,
-           };
-           const updatedLocation = await Location.update(params, updateOptions);
-           res.status(202).json({ message: "Done" });
-       } catch (err) {
-           res.status(500).json(err.message)
-       }
-   }*/
 }

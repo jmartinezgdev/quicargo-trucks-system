@@ -1,21 +1,22 @@
 import { ValidationChain, param, body, query } from 'express-validator';
+import { errorMessages } from '../constants/errors.constants';
 import { AppValidator } from './app.validator';
 
 export class LocationValidator extends AppValidator {
-    private IdValidator: ValidationChain[] = [param('id', 'Invalid Location Id').isInt()];
+    private IdValidator: ValidationChain[] = [param('id', errorMessages.common.INVALID_ID).isInt()];
 
     public getByIdValidator: ValidationChain[] = [...this.IdValidator];
 
     public createValidator: ValidationChain[] = [
-        body('truckId', 'truckId should be numeric').isInt(),
-        body('latitude', 'latitude should be numeric').isNumeric(),
-        body('longitude', 'longitude should be numeric').isNumeric(),
-        body('dateAndTime', 'dateAndTime should be a valid date').not().isEmpty()
+        body('truckId', errorMessages.location.INVALID_TRUCK_ID).isInt(),
+        body('latitude', errorMessages.location.INVALID_LATITUDE).isNumeric(),
+        body('longitude', errorMessages.location.INVALID_LONGITUDE).isNumeric(),
+        body('dateAndTime', errorMessages.location.DATE_AND_TIME_REQUIRED).not().isEmpty()
     ]
 
     public getByTruckIdValidator: ValidationChain[] = [
-        param('truckId', 'Invalid Truck Id').isInt(),
-        query('limit', 'limit should be a number bigger than 0').optional().isInt({ gt: 0 })
+        param('truckId', errorMessages.location.INVALID_TRUCK_ID).isInt(),
+        query('limit', errorMessages.location.INVALID_LIMIT).optional().isInt({ gt: 0 })
     ]
 
     public deleteValidator: ValidationChain[] = [

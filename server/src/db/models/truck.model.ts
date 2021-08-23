@@ -1,6 +1,7 @@
 import { Model, DataTypes } from "sequelize";
 import { sequelize } from "./index";
 import { Location } from "../models/location.model";
+import { errorMessages } from "../../constants/errors.constants";
 
 export class Truck extends Model {
     public id: number;
@@ -27,7 +28,10 @@ Truck.init(
         licensePlate: {
             type: DataTypes.STRING(50),
             allowNull: false,
-            unique: true,
+            unique: {
+                name: errorMessages.truck.LICENCE_PLATE_UNIQUE_NAME,
+                msg: errorMessages.truck.LICENCE_PLATE_UNIQUE_MESSAGE,
+            },
             field: 'license_plate'
         },
         currentKm: {
@@ -57,7 +61,7 @@ Truck.init(
     },
     {
         tableName: "trucks",
-        sequelize
+        sequelize,
     }
 );
 

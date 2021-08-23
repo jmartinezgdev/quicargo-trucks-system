@@ -20,5 +20,5 @@ CREATE TABLE IF NOT EXISTS locations(
     date_and_time TIMESTAMP NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT now(),
     updated_at TIMESTAMP NOT NULL DEFAULT now(),
-     UNIQUE (truck_id, latitude, longitude, date_and_time)
+    UNIQUE (truck_id, latitude, longitude, date_and_time)
 );
