@@ -24,8 +24,8 @@ export class LocationController {
         try {
             const locations: Location[] = await this.locationService.get();
             res.json(locations);
-        } catch (err) {
-            res.status(500).json({ error: err.message });
+        } catch (error) {
+            res.status(500).json({ message: error.message });
         }
     }
 
@@ -38,9 +38,9 @@ export class LocationController {
         try {
             const id: number = Number(req.params.id);
             const location: Location = await this.locationService.getById(id);
-            location ? res.json(location) : res.status(404).json({ error: errorMessages.location.LOCATION_NOT_FOUND });
-        } catch (err) {
-            res.status(500).json({ error: err.message });
+            location ? res.json(location) : res.status(404).json({ message: errorMessages.location.LOCATION_NOT_FOUND });
+        } catch (error) {
+            res.status(500).json({ message: error.message });
         }
     }
 
@@ -55,8 +55,8 @@ export class LocationController {
             const limit: number = Number(req.query.limit);
             const locations: Location[] = await this.locationService.getByTruckId(truckId, limit);
             res.json(locations);
-        } catch (err) {
-            res.status(500).json({ error: err.message });
+        } catch (error) {
+            res.status(500).json({ message: error.message });
         }
     }
 
@@ -70,15 +70,15 @@ export class LocationController {
             const newLocation: Location = req.body;
             const createdLocation = await this.locationService.create(newLocation);
             res.status(201).json(createdLocation);
-        } catch (err) {
-            let message = err.message;
+        } catch (error) {
+            let message = error.message;
 
-            if (err instanceof ForeignKeyConstraintError) {
+            if (error instanceof ForeignKeyConstraintError) {
                 message = errorMessages.location.TRUCK_NOT_FOUND;
-            } else if (err instanceof UniqueConstraintError) {
+            } else if (error instanceof UniqueConstraintError) {
                 message = errorMessages.location.LOCATION_EXIST;
             }
-            res.status(500).json({ error: message });
+            res.status(500).json({ message });
         }
     }
 
@@ -92,8 +92,8 @@ export class LocationController {
             const id: number = Number(req.params.id);
             await this.locationService.delete(id);
             res.sendStatus(204);
-        } catch (err) {
-            res.status(500).json({ error: err.message });
+        } catch (error) {
+            res.status(500).json({ message: error.message });
         }
     }
 }

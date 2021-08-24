@@ -1,6 +1,8 @@
 import * as express from 'express';
 import * as compression from 'compression';
 import * as methodOverride from 'method-override';
+import * as cors from "cors";
+
 import Route from "./routes"
 /**
  * Class representing the App
@@ -24,6 +26,7 @@ class App {
         }));
         this.app.use(express.json());
         this.app.use(methodOverride());
+        this.app.use(cors());
     }
 }
 

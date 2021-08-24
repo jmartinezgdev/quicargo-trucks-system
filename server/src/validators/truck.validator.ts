@@ -9,16 +9,17 @@ export class TruckValidator extends AppValidator {
 
     public createValidator: ValidationChain[] = [
         body('model', errorMessages.truck.MODEL_REQUIRED).not().isEmpty(),
+        body('year', errorMessages.truck.INVALID_YEAR).isInt({ min: 1900, max: new Date().getFullYear() }),
         body('licensePlate', errorMessages.truck.LICENCE_PLATE_REQUIRED).not().isEmpty(),
-        body('currentKm', errorMessages.truck.INVALID_CURRENT_KM).isNumeric(),
-        body('maximumLoadKg', errorMessages.truck.INVALID_MAXIMUM_LOAD_KG).isNumeric(),
+        body('currentKm', errorMessages.truck.INVALID_CURRENT_KM).isFloat({ min: 0 }),
+        body('maximumLoadKg', errorMessages.truck.INVALID_MAXIMUM_LOAD_KG).isFloat({ min: 0 }),
         body('fuelType', errorMessages.truck.FUEL_TYPE_REQUIRED).not().isEmpty()
     ]
 
     public updateValidator: ValidationChain[] = [
         ...this.IdValidator,
-        body('currentKm',errorMessages.truck.INVALID_CURRENT_KM).optional().isNumeric(),
-        body('maximumLoadKg', errorMessages.truck.INVALID_MAXIMUM_LOAD_KG).optional().isNumeric(),
+        body('currentKm', errorMessages.truck.INVALID_CURRENT_KM).optional().isFloat({ min: 0 }),
+        body('maximumLoadKg', errorMessages.truck.INVALID_MAXIMUM_LOAD_KG).optional().isFloat({ min: 0 })
     ]
 
     public deleteValidator: ValidationChain[] = [

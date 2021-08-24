@@ -6,6 +6,7 @@ import { errorMessages } from "../../constants/errors.constants";
 export class Truck extends Model {
     public id: number;
     public model: string;
+    public year: number;
     public licensePlate: string;
     public currentKm: number;
     public maximumLoadKg: number;
@@ -23,6 +24,10 @@ Truck.init(
         },
         model: {
             type: DataTypes.STRING(50),
+            allowNull: false,
+        },
+        year: {
+            type: DataTypes.INTEGER,
             allowNull: false,
         },
         licensePlate: {

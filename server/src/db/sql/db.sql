@@ -4,6 +4,7 @@ CREATE DATABASE quicargo;
 CREATE TABLE IF NOT EXISTS trucks(
     id serial PRIMARY KEY,
     model VARCHAR (50) NOT NULL,
+    year INTEGER NOT NULL,
     license_plate VARCHAR (50) UNIQUE NOT NULL,
     current_km FLOAT NOT NULL,
     maximum_load_kg FLOAT NOT NULL,
