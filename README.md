@@ -32,7 +32,7 @@ This API currently provides Trucks `/trucks` and Locations `/locations` resource
 
 ## Usage Examples
 
-The following examples use a base URL of `http://localhost:3000/api/v1`, which is the default development server for Express.
+The following examples use a base URL of `http://localhost:3000/api/v1`, which is the default development server for The App.
 
 **Trucks:**
 
