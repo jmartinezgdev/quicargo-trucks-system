@@ -15,7 +15,7 @@ git clone https://github.com/jmartinezgdev/quicargo-trucks-system.git
 
 Step 2:
 
-- Start a PostgreSql Server and create a db and tables code located in src/db/db.sql
+- Start a PostgreSql Server and create the quicargo database and tables -> code located in src/db/db.sql
 
 - Update if is necessary the credentials used to connect to the local db in src/db/config.ts
 
