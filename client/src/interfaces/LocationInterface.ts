@@ -1,5 +1,5 @@
 export interface ILocation {
-    id: number,
+    id?: number,
     truckId: number,
     latitude: number;
     longitude: number;

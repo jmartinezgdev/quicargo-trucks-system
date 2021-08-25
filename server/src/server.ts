@@ -1,5 +1,5 @@
 import * as winston from 'winston';
-import app from "./app";
+import App from "./App";
 import { SERVER_PORT, SERVER_HOST } from './env';
 
 const logger = winston.createLogger({
@@ -18,7 +18,7 @@ const logger = winston.createLogger({
     ]
 });
 
-app.listen(SERVER_PORT, () => {
+App.listen(SERVER_PORT, () => {
     logger.log('info', `Server Port: ${SERVER_PORT}`);
     logger.log('info', `Server URL: http://${SERVER_HOST}:${SERVER_PORT}`);
 });

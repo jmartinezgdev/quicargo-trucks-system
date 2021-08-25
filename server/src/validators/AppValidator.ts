@@ -5,7 +5,7 @@ import { validationResult, ValidationError, Result } from 'express-validator';
  * Class representing AppValidator
  * @class
  */
-export class AppValidator {
+export default class AppValidator {
 
     /**
      * Get a list of errors thrown by express validators
@@ -33,7 +33,7 @@ export class AppValidator {
     public processErrors(req: Request, res: Response, next: Function): Response<string> | void {
         const errors: ValidationError[] = AppValidator.getErrors(req);
         if (errors.length) {
-            return res.status(400).json({ error: errors[0].msg });
+            return res.status(400).json({ message: errors[0].msg });
         }
         next();
     }

@@ -1,11 +1,11 @@
 import { DestroyOptions, FindOptions } from "sequelize";
-import { Location } from "../db/models/location.model";
+import  Location  from "../db/models/LocationModel";
 
 /**
  * Class representing Location Service
  * @class
  */
-export class LocationService {
+export default class LocationService {
     /**
      * Get all Locations
      * @returns {Promise<Location[]>}

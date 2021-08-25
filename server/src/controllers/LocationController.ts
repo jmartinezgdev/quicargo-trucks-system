@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
 import { ForeignKeyConstraintError, UniqueConstraintError } from "sequelize";
-import { errorMessages } from "../constants/errors.constants";
-import { Location } from "../db/models/location.model";
-import { LocationService } from "../services/location.service";
+import { errorMessages } from "../constants/errors";
+import Location from "../db/models/LocationModel";
+import LocationService from "../services/LocationService";
 
 /**
  *  Class representing Location Controller
@@ -52,7 +52,7 @@ export class LocationController {
     public getByTruckId = async (req: Request, res: Response): Promise<void> => {
         try {
             const truckId: number = Number(req.params.truckId);
-            const limit: number = Number(req.query.limit);
+            const limit: number = Number(req.query.limit) || null;
             const locations: Location[] = await this.locationService.getByTruckId(truckId, limit);
             res.json(locations);
         } catch (error) {
@@ -74,7 +74,7 @@ export class LocationController {
             let message = error.message;
 
             if (error instanceof ForeignKeyConstraintError) {
-                message = errorMessages.location.TRUCK_NOT_FOUND;
+                message = errorMessages.common.TRUCK_NOT_FOUND;
             } else if (error instanceof UniqueConstraintError) {
                 message = errorMessages.location.LOCATION_EXIST;
             }

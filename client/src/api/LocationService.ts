@@ -11,8 +11,9 @@ const getById = (id: number): Promise<ILocation> => {
     return httpClient.get(`${LOCATIONS_PATH}/${id}`);
 }
 
-const getByTruckId = (truckId: number, limit: number): Promise<ILocation[]> => {
-    return httpClient.get(`${LOCATIONS_PATH}/truck/${truckId}?limit=${limit}`);
+const getByTruckId = (truckId: number, limit?: number): Promise<ILocation[]> => {
+    const partialUrl = limit ? `${truckId}?limit=${limit}` : `${truckId}`;
+    return httpClient.get(`${LOCATIONS_PATH}/truck/${partialUrl}`);
 }
 
 const create = (newLocation: ILocation): Promise<ILocation> => {

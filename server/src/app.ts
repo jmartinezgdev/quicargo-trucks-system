@@ -18,7 +18,7 @@ class App {
         this.appRoutes = new Route();
         this.appRoutes.initRoutes(this.app);
     }
-    
+
     private initSettings(): void {
         this.app.use(compression());
         this.app.use(express.urlencoded({

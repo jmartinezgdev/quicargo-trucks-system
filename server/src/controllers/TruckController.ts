@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import { errorMessages } from "../constants/errors.constants";
-import { Truck } from "../db/models/truck.model";
-import { TruckService } from "../services/truck.service";
+import { errorMessages } from "../constants/errors";
+import Truck from "../db/models/TruckModel";
+import TruckService from "../services/TruckService";
 /**
  * Class Representing Truck Controller
  * @class
@@ -36,7 +36,7 @@ export class TruckController {
         try {
             const id: number = Number(req.params.id);
             const truck: Truck = await this.truckService.getById(id);
-            truck ? res.json(truck) : res.status(404).json({ message: errorMessages.truck.TRUCK_NOT_FOUND });
+            truck ? res.json(truck) : res.status(404).json({ message: errorMessages.common.TRUCK_NOT_FOUND });
         } catch (error) {
             res.status(500).json({ message: error.message });
         }
@@ -69,7 +69,7 @@ export class TruckController {
             const [, [updatedTruck]] = await this.truckService.update(id, truck);
             updatedTruck ?
                 res.status(200).json(updatedTruck) :
-                res.status(404).json({ message: errorMessages.truck.TRUCK_NOT_FOUND });
+                res.status(404).json({ message: errorMessages.common.TRUCK_NOT_FOUND });
 
         } catch (error) {
             res.status(500).json({ message: error.message });

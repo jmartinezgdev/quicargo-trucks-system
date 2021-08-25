@@ -1,14 +1,14 @@
 
 import { Application } from "express";
-import { LocationController } from "../controllers/location.controller";
+import { LocationController } from "../controllers/LocationController";
 import { LOCATIONS_PATH } from "../env";
-import { IRoutes } from "../interfaces/routes.interface";
-import { LocationValidator } from "../validators/location.validator";
+import  Routes  from "../interfaces/routes";
+import { LocationValidator } from "../validators/LocationValidator";
 
 /**
  * Class representing Location Routes
  */
-export default class LocationRoutes implements IRoutes {
+export default class LocationRoutes implements Routes {
     private locationController: LocationController;
     private locationValidator: LocationValidator;
 

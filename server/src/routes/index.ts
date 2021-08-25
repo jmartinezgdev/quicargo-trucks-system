@@ -1,7 +1,7 @@
 import { Application } from "express";
 import { API_PATH } from "../env";
-import LocationRoutes from "./location.routes";
-import TruckRoutes from "./truck.routes";
+import LocationRoutes from "./LocationRoutes";
+import TruckRoutes from "./TruckRoutes";
 
 /**
  * Class representing Route

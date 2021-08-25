@@ -1,14 +1,14 @@
 import { Application } from "express";
-import { TruckController } from "../controllers/truck.controller";
+import { TruckController } from "../controllers/TruckController";
 import { TRUCKS_PATH } from "../env";
-import { IRoutes } from "../interfaces/routes.interface";
-import { TruckValidator } from "../validators/truck.validator";
+import Routes from "../interfaces/routes";
+import { TruckValidator } from "../validators/TruckValidator";
 
 /**
  * Class representing Truck Routes
  * @class
  */
-export default class TruckRoutes implements IRoutes {
+export default class TruckRoutes implements Routes {
     private truckController: TruckController;
     private truckValidator: TruckValidator;
 

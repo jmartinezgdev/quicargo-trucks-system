@@ -1,12 +1,12 @@
 
 import { DestroyOptions, UpdateOptions } from "sequelize";
-import { Truck } from "../db/models/truck.model";
+import Truck from "../db/models/TruckModel";
 
 /**
  * Class representing Truck Service
  * @class
  */
-export class TruckService {
+export default class TruckService {
     /**
      * Get all trucks
      * @returns {Promise<Truck[]>} 

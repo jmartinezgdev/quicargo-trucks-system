@@ -1,5 +1,5 @@
 import { Application } from "express";
 
-export interface IRoutes {
+export default interface Routes {
     router(app: Application, apiPath: string): void;
 }

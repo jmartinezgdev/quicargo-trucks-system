@@ -1,7 +1,7 @@
 import { Model, DataTypes } from "sequelize";
 import { sequelize } from "./index";
 
-export class Location extends Model {
+export default class Location extends Model {
   public id: number;
   public truckId: number;
   public latitude: number;
