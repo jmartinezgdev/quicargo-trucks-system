@@ -1,6 +1,6 @@
 
 import { DestroyOptions, UpdateOptions } from "sequelize";
-import Truck from "../db/models/TruckModel";
+import Truck from "../models/TruckModel";
 
 /**
  * Class representing Truck Service

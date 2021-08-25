@@ -1,4 +1,4 @@
-export interface ILocation {
+export interface Location {
     id?: number,
     truckId: number,
     latitude: number;

@@ -1,4 +1,4 @@
-export interface ITruck {
+export interface Truck {
     id: number,
     model: string,
     year: number,

@@ -1,4 +1,4 @@
-export const errorMessages = Object.freeze({
+export const ERROR_MESSAGES = Object.freeze({
     truck: {
         LICENCE_PLATE_EXIST: "Licence Plate already exist",
         LICENCE_PLATE_ERROR_NAME: "Licence Plate Constraint Error",

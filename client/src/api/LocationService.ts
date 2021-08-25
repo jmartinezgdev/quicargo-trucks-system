@@ -1,22 +1,22 @@
 import httpClient from "./http";
-import { ILocation } from "../interfaces/LocationInterface";
+import { Location } from "../interfaces";
 
 const LOCATIONS_PATH = '/locations';
 
-const getAll = (): Promise<ILocation[]> => {
+const getAll = (): Promise<Location[]> => {
     return httpClient.get(LOCATIONS_PATH);
 }
 
-const getById = (id: number): Promise<ILocation> => {
+const getById = (id: number): Promise<Location> => {
     return httpClient.get(`${LOCATIONS_PATH}/${id}`);
 }
 
-const getByTruckId = (truckId: number, limit?: number): Promise<ILocation[]> => {
+const getByTruckId = (truckId: number, limit?: number | null): Promise<Location[]> => {
     const partialUrl = limit ? `${truckId}?limit=${limit}` : `${truckId}`;
     return httpClient.get(`${LOCATIONS_PATH}/truck/${partialUrl}`);
 }
 
-const create = (newLocation: ILocation): Promise<ILocation> => {
+const create = (newLocation: Location): Promise<Location> => {
     return httpClient.post(LOCATIONS_PATH, newLocation);
 }
 

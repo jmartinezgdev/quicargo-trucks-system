@@ -1,5 +1,5 @@
 import { DestroyOptions, FindOptions } from "sequelize";
-import  Location  from "../db/models/LocationModel";
+import  Location  from "../models/LocationModel";
 
 /**
  * Class representing Location Service

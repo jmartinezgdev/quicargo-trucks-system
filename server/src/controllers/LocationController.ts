@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { ForeignKeyConstraintError, UniqueConstraintError } from "sequelize";
-import { errorMessages } from "../constants/errors";
-import Location from "../db/models/LocationModel";
+import { ERROR_MESSAGES } from "../constants/errors";
+import Location from "../models/LocationModel";
 import LocationService from "../services/LocationService";
 
 /**
@@ -38,7 +38,7 @@ export class LocationController {
         try {
             const id: number = Number(req.params.id);
             const location: Location = await this.locationService.getById(id);
-            location ? res.json(location) : res.status(404).json({ message: errorMessages.location.LOCATION_NOT_FOUND });
+            location ? res.json(location) : res.status(404).json({ message: ERROR_MESSAGES.location.LOCATION_NOT_FOUND });
         } catch (error) {
             res.status(500).json({ message: error.message });
         }
@@ -74,9 +74,9 @@ export class LocationController {
             let message = error.message;
 
             if (error instanceof ForeignKeyConstraintError) {
-                message = errorMessages.common.TRUCK_NOT_FOUND;
+                message = ERROR_MESSAGES.common.TRUCK_NOT_FOUND;
             } else if (error instanceof UniqueConstraintError) {
-                message = errorMessages.location.LOCATION_EXIST;
+                message = ERROR_MESSAGES.location.LOCATION_EXIST;
             }
             res.status(500).json({ message });
         }

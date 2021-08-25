@@ -1,7 +1,7 @@
 import { Model, DataTypes } from "sequelize";
 import { sequelize } from "./index";
 import Location from "./LocationModel";
-import { errorMessages } from "../../constants/errors";
+import { ERROR_MESSAGES } from "../constants/errors";
 
 export default class Truck extends Model {
     public id: number;
@@ -34,8 +34,8 @@ Truck.init(
             type: DataTypes.STRING(50),
             allowNull: false,
             unique: {
-                name: errorMessages.truck.LICENCE_PLATE_EXIST,
-                msg: errorMessages.truck.LICENCE_PLATE_ERROR_NAME,
+                name: ERROR_MESSAGES.truck.LICENCE_PLATE_ERROR_NAME,
+                msg: ERROR_MESSAGES.truck.LICENCE_PLATE_EXIST,
             },
             field: 'license_plate'
         },

@@ -1,21 +1,21 @@
+import { Truck } from "../interfaces";
 import httpClient from "./http";
-import { ITruck } from "../interfaces/TruckInterface";
 
 const TRUCKS_PATH = '/trucks';
 
-const getAll = (): Promise<ITruck[]> => {
+const getAll = (): Promise<Truck[]> => {
     return httpClient.get(TRUCKS_PATH);
 }
 
-const getById = (id: number): Promise<ITruck> => {
+const getById = (id: number): Promise<Truck> => {
     return httpClient.get(`${TRUCKS_PATH}/${id}`);
 }
 
-const create = (newTruck: ITruck): Promise<ITruck> => {
+const create = (newTruck: Truck): Promise<Truck> => {
     return httpClient.post(TRUCKS_PATH, newTruck);
 }
 
-const update = (newTruck: ITruck): Promise<ITruck> => {
+const update = (newTruck: Truck): Promise<Truck> => {
     return httpClient.put(TRUCKS_PATH, newTruck);
 }
 
