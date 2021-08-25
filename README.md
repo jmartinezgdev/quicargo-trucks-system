@@ -2,7 +2,7 @@
 
 App that allow to register Trucks and their locations.
 
-Server App
+## Server App
 
 ## Installation
 
@@ -157,7 +157,7 @@ Delete a Location:
 curl -X DELETE http://localhost:3000/locations/1
 ```
 
-Clent App
+## Clent App
 
 ## Installation
 
