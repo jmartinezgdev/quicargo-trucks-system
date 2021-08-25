@@ -2,6 +2,8 @@
 
 App that allow to register Trucks and their locations.
 
+Server App
+
 ## Installation
 
 Step 1:
@@ -17,9 +19,7 @@ Step 2:
 
 - Update if is necessary the credentials used to connect to the local db in src/db/config.ts
 
-- Run "gulp start" to run the local server
-
-Next, run the following commands to start the server:
+- Next, run the following commands to start the server:
 
 ```sh
 cd server
@@ -34,7 +34,9 @@ This API currently provides Trucks `/trucks` and Locations `/locations` resource
 
 ## Usage Examples
 
-The following examples use a base URL of `http://localhost:3000/api/v1`, which is the default development server for Express.
+The following examples use a base URL of `http://localhost:3000/api/v1`, which is the default development server for The App.
+
+You can use the postman collection `Quicargo Api Postman Collection.postman_collection.json`
 
 **Trucks:**
 
@@ -154,3 +156,14 @@ Delete a Location:
 ```sh
 curl -X DELETE http://localhost:3000/locations/1
 ```
+
+Clent App
+
+## Installation
+
+```sh
+cd client
+npm install
+npm start
+```
+
