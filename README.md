@@ -17,9 +17,7 @@ Step 2:
 
 - Update if is necessary the credentials used to connect to the local db in src/db/config.ts
 
-- Run "gulp start" to run the local server
-
-Next, run the following commands to start the server:
+- Next, run the following commands to start the server:
 
 ```sh
 cd server
