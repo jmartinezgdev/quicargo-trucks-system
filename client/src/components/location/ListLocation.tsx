@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import LocationService from '../../api/LocationService';
 import GoogleMapReact from 'google-map-react';
-import { Location } from "../../interfaces/locationInterface";
+import { Location } from "../../interfaces/Location";
 import { LABELS, MESSAGES } from '../../constants';
 import { AppEmpty } from '../../common/AppEmpty';
 import { GOOGLE_MAP_API_KEY } from '../../env';

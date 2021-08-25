@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { LABELS } from '../../constants';
-import { Truck } from '../../interfaces/truckInterface';
+import { Truck } from '../../interfaces/Truck';
 import './item.css';
 
 const ItemTruck: React.FC<Truck> = (truck: Truck) => {

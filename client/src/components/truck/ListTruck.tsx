@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import TruckService from '../../api/TruckService';
 import { AppEmpty } from '../../common/AppEmpty';
 import { MESSAGES, LABELS } from '../../constants';
-import { Truck } from '../../interfaces/truckInterface';
+import { Truck } from '../../interfaces/Truck';
 import ItemTruck from './ItemTruck';
 
 export const ListTruck: React.FC = () => {

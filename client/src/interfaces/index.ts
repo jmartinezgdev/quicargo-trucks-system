@@ -1,2 +1,2 @@
-export * from './locationInterface';
-export * from './truckInterface';
+export * from './Location';
+export * from './Truck';

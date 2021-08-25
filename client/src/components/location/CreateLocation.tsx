@@ -4,7 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { AppNotification, NotificationType } from '../../common/AppNotification';
 import LocationService from '../../api/LocationService';
-import { Location } from "../../interfaces/locationInterface";
+import { Location } from "../../interfaces/Location";
 import { useParams } from 'react-router-dom';
 import { LABELS, MESSAGES } from '../../constants';
 

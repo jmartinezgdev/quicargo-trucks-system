@@ -5,7 +5,7 @@ import * as yup from "yup";
 import { AppNotification, NotificationType } from '../../common/AppNotification';
 import TruckService from '../../api/TruckService';
 import { ERRORS, MESSAGES, LABELS } from '../../constants';
-import { Truck } from '../../interfaces/truckInterface';
+import { Truck } from '../../interfaces/Truck';
 
 const schema = yup.object().shape({
     model: yup.string().required(ERRORS.truck.MODEL_REQUIRED),
