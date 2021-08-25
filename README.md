@@ -36,7 +36,7 @@ This API currently provides Trucks `/trucks` and Locations `/locations` resource
 
 The following examples use a base URL of `http://localhost:3000/api/v1`, which is the default development server for The App.
 
-You can use the postman collection Quicargo Api Postman Collection.postman_collection.json
+You can use the postman collection `Quicargo Api Postman Collection.postman_collection.json`
 
 **Trucks:**
 
