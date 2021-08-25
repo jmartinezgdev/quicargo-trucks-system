@@ -1,0 +1,312 @@
+{
+	"info": {
+		"name": "Quicargo Api Postman Collection",
+		"_postman_id": "df863d67-9253-b6d1-3702-6d11c41d43ce",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Trucks",
+			"description": "",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"model\" : \"Ferrary Mustan\",\n\t\"year\": 2021,\n\t\"licensePlate\": \"F457-35\",\n\t\"currentKm\" : \"33\",\n\t\"maximumLoadKg\" : \"24\",\n\t\"fuelType\" : \"electric\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/trucks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"trucks"
+							]
+						},
+						"description": "Create a new truck"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"model\" : \"Ford Mustan\",\n\t\"licensePlate\" : \"p5d454794796\",\n\t\"currentKm\" : 5.993,\n\t\"maximumLoadKg\" : \"29\",\n\t\"fuelType\" : \"electric\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/trucks/36",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"trucks",
+								"36"
+							]
+						},
+						"description": "Update a truck"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/trucks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"trucks"
+							]
+						},
+						"description": "Get all trucks"
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/trucks/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"trucks",
+								"1"
+							]
+						},
+						"description": "Get a truck"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/trucks/33",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"trucks",
+								"33"
+							]
+						},
+						"description": "Delete a truck"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Locations",
+			"description": "",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"truckId\" : \"1\",\n\t\"latitude\" : 14.5522487,\n\t\"longitude\" : 14.4455565,\n\t\"dateAndTime\" : \"2021-08-23 16:09:56.274+00\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/locations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"locations"
+							]
+						},
+						"description": "Create a Location"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/locations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"locations"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/locations/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"locations",
+								"3"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Truck Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/locations/truck/1?limit=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"locations",
+								"truck",
+								"1"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "1",
+									"equals": true
+								}
+							]
+						},
+						"description": "Get locations by truck"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/locations/22",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"locations",
+								"22"
+							]
+						},
+						"description": "Delete a location"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "240511a2-81ed-4b0f-9753-943402e88a59",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "b6a2aa5c-987b-4a2a-9500-6b4a4539515e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

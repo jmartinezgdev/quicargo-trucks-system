@@ -17,6 +17,6 @@ export const LABELS = Object.freeze({
         SEE_LOCATIONS: "See Locations",
         CREATE_LOCATION: "Create Location",
         LOCATIONS_FOR: "Locations for Truck Number:",
-        LAST_LOCATIONS: "Type the Number of locations to see"
+        LAST_LOCATIONS: "Enter the number of locations you want to see"
     }
 });

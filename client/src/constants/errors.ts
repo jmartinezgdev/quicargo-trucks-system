@@ -12,6 +12,7 @@ export const ERRORS = Object.freeze({
         LONGITUDE_INVALID: "Invalid Longitude"
     },
     common: {
-        PAGE_NOT_FOUND: "Page not Found"
+        PAGE_NOT_FOUND: "Page not Found",
+        REQUEST_NOT_AVAILABLE: "We cannot make your request"
     }
 });

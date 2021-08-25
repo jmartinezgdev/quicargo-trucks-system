@@ -1,4 +1,5 @@
 import axios from "axios";
+import { ERRORS } from "../constants";
 
 const http = axios.create({
     baseURL: "http://localhost:3000/api/v1",
@@ -12,7 +13,7 @@ const responseHandler = (response: any) => {
 };
 
 const errorHandler = (error: any) => {
-    return Promise.reject(error.response.data);
+    return Promise.reject(error.response?.data || { message: ERRORS.common.REQUEST_NOT_AVAILABLE });
 };
 
 http.interceptors.response.use(
