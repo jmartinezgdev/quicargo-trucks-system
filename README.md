@@ -92,7 +92,7 @@ Update a truck:
 curl -H "Content-Type: application/json" -X PUT -d '{"model":"Ford"}' http://localhost:3000/trucks/1
 ```
 
-**DELETE /truck/{id}**
+**DELETE /trucks/{id}**
 
 Delete a truck:
 
@@ -151,7 +151,7 @@ Retrieve all Locations by truckId, optionally accept a limit of results `locatio
 curl http://localhost:3000/locations/1
 ```
 
-**DELETE /location/{id}**
+**DELETE /locations/{id}**
 
 Delete a Location:
 
