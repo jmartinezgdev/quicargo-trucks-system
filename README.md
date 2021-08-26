@@ -132,7 +132,7 @@ Example Response
 Retrieve a location:
 
 ```sh
-curl http://localhost:3000/location/1
+curl http://localhost:3000/locations/1
 ```
 
 **POST /locations**
@@ -148,7 +148,7 @@ curl -H "Content-Type: application/json" -d '{"truckId":1, "latitude":21.521757,
 Retrieve all Locations by truckId, optionally accept a limit of results `locations?limit=5` always return the last locations.
 
 ```sh
-curl http://localhost:3000/location/1
+curl http://localhost:3000/locations/1
 ```
 
 **DELETE /location/{id}**
