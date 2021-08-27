@@ -13,10 +13,10 @@ export const LABELS = Object.freeze({
     location: {
         LONGITUDE: "Longitude:",
         LATITUDE: "Latitude:",
-        ADD_LOCATIONS: "Add Locations",
+        ADD_LOCATIONS: "Add Location",
         SEE_LOCATIONS: "See Locations",
         CREATE_LOCATION: "Create Location",
         LOCATIONS_FOR: "Locations for Truck Number:",
-        LAST_LOCATIONS: "Enter the number of locations you want to see"
+        LAST_LOCATIONS: "Enter the number of locations"
     }
 });

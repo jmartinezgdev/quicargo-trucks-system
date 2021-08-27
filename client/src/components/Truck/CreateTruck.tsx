@@ -38,7 +38,7 @@ export const CreateTruck: React.FC = () => {
             reset();
             setMessage(MESSAGES.TRUCK_CREATED);
             setNotificationType(NotificationType.Success)
-        } catch (e) {
+        } catch (e: any) {
             setMessage(e.message);
             setNotificationType(NotificationType.Error)
         } finally {
